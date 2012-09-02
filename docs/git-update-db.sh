@@ -8,7 +8,7 @@ then
 fi
 
 echo -e "Exporting Git Log to sql dump"
-git log --format="INSERT IGNORE INTO gitlog (id, hash, date, user_name, message) VALUES (NULL, \"%H\", \"%ct\", \"%an\", REPLACE(\"%f\", \"-\", \" \"));" > gitlog.sql
+git log --format="INSERT IGNORE INTO git_log (id, hash, date, user_name, message) VALUES (NULL, \"%H\", \"%ct\", \"%an\", REPLACE(\"%f\", \"-\", \" \"));" > gitlog.sql
 
 echo -e "Importing SQL dump to $1 database"
 mysql --user=gitlog --pass=gitlog $1 < gitlog.sql
