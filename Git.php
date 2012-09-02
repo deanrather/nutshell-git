@@ -70,7 +70,15 @@ namespace application\plugin\git
 					$version['date'] = $log['date'];
 					$version['name'] = self::formatVersionName($version['date']);
 					$version['logs'] = array();
-					$nextVersionDate = $versionDates[$versionIndex++]['date'];
+					if(isset($versionDates[$versionIndex]))
+					{
+						$nextVersionDate = $versionDates[$versionIndex]['date'];
+						$versionIndex++;
+					}
+					else
+					{
+						$nextVersionDate = 0;
+					}
 				}
 				$version['logs'][] = $log;
 			}
