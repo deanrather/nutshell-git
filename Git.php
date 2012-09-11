@@ -96,7 +96,7 @@ namespace application\plugin\git
 		
 		public static function formatVersionName($date)
 		{
-			return date('Y-m-d', $date);
+			return date('Y-m-d H:i', $date);
 		}
 		
 		public static function formatDateTime($date)
